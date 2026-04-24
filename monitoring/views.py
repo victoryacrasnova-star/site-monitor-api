@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import MonitoredSite, ParseResult
+from .serializers import MonitoredSiteSerializer, ParseResultSerializer
 
-# Create your views here.
+class MonitoredSiteViewSet(viewsets.ModelViewSet):
+    queryset = MonitoredSite.objects.all()
+    serializer_class = MonitoredSiteSerializer
+
+class ParseResultViewSet(viewsets.ModelViewSet):
+    queryset = ParseResult.objects.all()
+    serializer_class = ParseResultSerializer
