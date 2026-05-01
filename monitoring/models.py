@@ -19,6 +19,8 @@ class ParseResult(models.Model):
     status_code = models.IntegerField()
 
     checked_at = models.DateTimeField(auto_now_add=True)
-
+    h1 = models.CharField(max_length=255, blank=True)
+    is_success = models.BooleanField(default=True)
+    error_msg = models.TextField(blank=True)
     def __str__(self):
         return f"{self.site.name} - {self.checked_at}"
